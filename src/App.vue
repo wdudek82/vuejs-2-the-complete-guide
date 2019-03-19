@@ -1,28 +1,26 @@
 <template>
-  <div id="app">
-    <Home />
-    <app-server></app-server>
+  <div id="app" class="container">
+    <Header />
+    <Servers />
+    <Footer />
   </div>
 </template>
 
 <script>
-import Home from './components/Home';
+
+import Header from './components/ui/Header';
+import Servers from './components/servers/Servers';
+import Footer from './components/ui/Footer';
 
 export default {
   name: 'App',
   components: {
-    Home,
+    Header,
+    Servers,
+    Footer,
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
