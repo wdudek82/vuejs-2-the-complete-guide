@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Home />
-    <app-server-status></app-server-status>
+    <app-server></app-server>
   </div>
 </template>
 

@@ -1,14 +1,18 @@
 <template>
   <div>
-    <p>Server Status: {{ status }}</p>
-    <hr>
-    <button @click="changeStatus">Change Status</button>
+    <h1>Foo</h1>
+    <app-server-status v-for="server in 5" :key="server"></app-server-status>
   </div>
 </template>
 
 <script>
+import ServerStatus from './ServerStatus';
+
 export default {
   name: 'Home',
+  components: {
+    'app-server-status': ServerStatus,
+  },
   props: {
     // status: {
     //   type: String,

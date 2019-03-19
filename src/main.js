@@ -5,7 +5,7 @@ import Home from './components/Home.vue';
 Vue.config.productionTip = false;
 
 /* Component registered globally */
-Vue.component('app-server-status', Home);
+Vue.component('app-servers', Home);
 
 new Vue({
   render: (h) => h(App),
