@@ -15,7 +15,6 @@
       <div class="col-xs-12 col-sm-6">
         <app-user-edit
             :my-age="age"
-            :edit-age="editAge"
         ></app-user-edit>
       </div>
     </div>
@@ -44,9 +43,6 @@ export default {
     },
     resetName() {
       this.name = 'Max';
-    },
-    editAge(newAge) {
-      this.age = +newAge;
     },
   },
 };

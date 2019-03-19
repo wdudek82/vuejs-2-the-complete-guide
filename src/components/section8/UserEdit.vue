@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import { eventBus } from '../../main';
+
 export default {
   name: 'UserEdit',
   props: {
@@ -16,15 +18,17 @@ export default {
       type: Number,
       required: true,
     },
-    editAge: {
-      type: Function,
-      required: true,
-    },
   },
   data() {
     return {
       age: this.myAge,
     };
+  },
+  methods: {
+    editAge() {
+      // eventBus.$emit('ageWasEdited', this.age);
+      eventBus.changeAge(this.age);
+    },
   },
 };
 </script>
