@@ -1,26 +1,25 @@
 <template>
   <div id="app" class="container">
-    <app-header />
-    <Servers />
-    <app-footer />
+    <div class="col-xs-12">
+      <app-user></app-user>
+    </div>
   </div>
 </template>
 
 <script>
-
-import AppHeader from './components/ui/AppHeader';
-import Servers from './components/servers/Servers';
-import AppFooter from './components/ui/AppFooter';
+import User from './components/section8/User';
 
 export default {
   name: 'App',
   components: {
-    AppHeader,
-    Servers,
-    AppFooter,
+    appUser: User,
   },
 };
 </script>
 
 <style>
+.component {
+  border: 1px solid black;
+  padding: 30px;
+}
 </style>
