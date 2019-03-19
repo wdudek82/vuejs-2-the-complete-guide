@@ -1,23 +1,23 @@
 <template>
   <div id="app" class="container">
-    <Header />
+    <app-header />
     <Servers />
-    <Footer />
+    <app-footer />
   </div>
 </template>
 
 <script>
 
-import Header from './components/ui/Header';
+import AppHeader from './components/ui/AppHeader';
 import Servers from './components/servers/Servers';
-import Footer from './components/ui/Footer';
+import AppFooter from './components/ui/AppFooter';
 
 export default {
   name: 'App',
   components: {
-    Header,
+    AppHeader,
     Servers,
-    Footer,
+    AppFooter,
   },
 };
 </script>
