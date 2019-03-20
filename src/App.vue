@@ -1,24 +1,16 @@
 <template>
   <div id="app" class="container">
-    <!--<div class="col-xs-12">-->
-    <!--<app-user></app-user>-->
-    <!--</div>-->
-    <!--<servers-main></servers-main>-->
-    <slots></slots>
+    <handling-forms></handling-forms>
   </div>
 </template>
 
 <script>
-import User from './components/section8/User';
-import ServersMain from './components/servers/ServersMain';
-import Slots from './components/slots/Slots.vue';
+import HandlingForms from './components/handling-forms/HandlingForms';
 
 export default {
   name: 'App',
   components: {
-    appUser: User,
-    ServersMain,
-    Slots,
+    HandlingForms,
   },
 };
 </script>
