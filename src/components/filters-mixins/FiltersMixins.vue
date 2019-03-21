@@ -9,7 +9,12 @@
         <h2>Filters & Mixins</h2>
         <p>{{ text | toUppercase }}</p>
         <p>{{ secondText | toLowercase }}</p>
+        <p>{{ secondText | reverseString }}</p>
+        <p>{{ secondText | countLetters }}</p>
+        <p>{{ revStr }}</p>
+        <p>{{ countChar }}</p>
         <hr />
+        <button @click="fruits.push('Berries')">Add New Item</button>
         <input v-model="filterText" />
         <ul>
           <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
@@ -28,10 +33,23 @@ export default {
     toUppercase(value) {
       return value.toUpperCase();
     },
+    reverseString(string) {
+      return string.split('').reverse().join('');
+    },
   },
   mixins: [
     fruitMixin,
   ],
+  data() {
+    return {
+      dummyText: 'Brown Fox jumped over the Lazy Dog',
+    };
+  },
+  computed: {
+    revStr() {
+      return this.dummyText.split('').reverse().join('');
+    },
+  },
   created() {
     console.log('Created inside FiltersMixins component');
   },

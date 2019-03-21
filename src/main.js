@@ -33,6 +33,10 @@ Vue.filter('toLowercase', (value) => {
   return value.toLowerCase();
 });
 
+Vue.filter('countLetters', (string) => {
+  return `${string} (${string.length})`;
+});
+
 /* Global Mixin */
 Vue.mixin({
   created() {

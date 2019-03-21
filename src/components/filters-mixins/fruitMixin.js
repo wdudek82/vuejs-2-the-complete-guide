@@ -5,6 +5,7 @@ export const fruitMixin = {
       secondText: 'Hello from second text!',
       filterText: '',
       fruits: ['Apple', 'Banana', 'Mango', 'Melon'],
+      dummyText: 'Lotem ipsum.',
     };
   },
   computed: {
@@ -12,6 +13,9 @@ export const fruitMixin = {
       return this.fruits.filter((fruit) => {
         return fruit.toLowerCase().match(this.filterText.toLowerCase());
       });
+    },
+    countChar() {
+      return `${this.dummyText} (${this.dummyText.length})`;
     },
   },
   created() {
