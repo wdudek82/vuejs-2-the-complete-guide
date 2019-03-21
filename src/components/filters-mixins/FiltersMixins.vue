@@ -32,6 +32,9 @@ export default {
   mixins: [
     fruitMixin,
   ],
+  created() {
+    console.log('Created inside FiltersMixins component');
+  },
 };
 </script>
 

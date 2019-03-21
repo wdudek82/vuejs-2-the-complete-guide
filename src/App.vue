@@ -7,15 +7,14 @@
 </template>
 
 <script>
-
-import AppDirectives from './components/directives/AppDirectives';
+// import AppDirectives from './components/directives/AppDirectives';
 import FiltersMixins from './components/filters-mixins/FiltersMixins';
 import AppList from './components/filters-mixins/List';
 
 export default {
   name: 'App',
   components: {
-    AppDirectives,
+    // AppDirectives,
     FiltersMixins,
     AppList,
   },

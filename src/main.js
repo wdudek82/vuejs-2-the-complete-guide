@@ -33,6 +33,13 @@ Vue.filter('toLowercase', (value) => {
   return value.toLowerCase();
 });
 
+/* Global Mixin */
+Vue.mixin({
+  created() {
+    console.log('Global Mixins - Created Hook');
+  },
+});
+
 export const eventBus = new Vue({
   methods: {
     changeAge(age) {
@@ -47,6 +54,6 @@ export const eventBus = new Vue({
   },
 });
 
-const app = new Vue({
+new Vue({
   render: (h) => h(App),
 }).$mount('#app');
