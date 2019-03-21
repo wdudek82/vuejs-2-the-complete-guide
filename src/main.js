@@ -28,6 +28,11 @@ Vue.directive('highlight', {
   },
 });
 
+/* Global Filters */
+Vue.filter('toLowercase', (value) => {
+  return value.toLowerCase();
+});
+
 export const eventBus = new Vue({
   methods: {
     changeAge(age) {
