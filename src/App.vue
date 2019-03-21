@@ -1,16 +1,17 @@
 <template>
-  <div id="app" class="container">
-    <handling-forms></handling-forms>
+  <div id="app">
+    <app-directives></app-directives>
   </div>
 </template>
 
 <script>
-import HandlingForms from './components/handling-forms/HandlingForms';
+
+import AppDirectives from './components/directives/AppDirectives';
 
 export default {
   name: 'App',
   components: {
-    HandlingForms,
+    AppDirectives,
   },
 };
 </script>
