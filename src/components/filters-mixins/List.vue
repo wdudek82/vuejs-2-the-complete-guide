@@ -7,9 +7,6 @@
     <div class="row">
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h2>Filters & Mixins</h2>
-        <p>{{ text | toUppercase }}</p>
-        <p>{{ secondText | toLowercase }}</p>
-        <hr />
         <input v-model="filterText" />
         <ul>
           <li v-for="fruit in filteredFruits" :key="fruit">{{ fruit }}</li>
@@ -24,11 +21,6 @@ import { fruitMixin } from './fruitMixin';
 
 export default {
   name: 'FilterMixins',
-  filters: {
-    toUppercase(value) {
-      return value.toUpperCase();
-    },
-  },
   mixins: [
     fruitMixin,
   ],
