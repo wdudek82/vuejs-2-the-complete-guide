@@ -16,11 +16,7 @@
         <transition :name="alertAnimation" type="transition" appear>
           <div v-if="showAlert" class="alert alert-info">First</div>
         </transition>
-        <transition
-          name=""
-          appear
-          appear-to-class="animated bounceInRight"
-        >
+        <transition name="" appear appear-to-class="animated bounceInRight">
           <div v-if="showAlert" class="alert alert-info">Second</div>
         </transition>
         <transition-group :name="alertAnimation" mode="out-in">
@@ -31,6 +27,29 @@
             Third B
           </div>
         </transition-group>
+        <hr />
+        <button class="btn btn-primary" @click="load = !load">
+          Load/Remove Element
+        </button>
+        <br /><br />
+        <transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @enter-cancelled="enterCancelled"
+
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+          @leave-cancelled="leaveCancelled"
+
+          :css="false"
+        >
+          <div
+            v-if="load"
+            style="width: 300px; height: 100px; background: lightgreen;"
+          ></div>
+        </transition>
       </div>
     </div>
   </div>
@@ -43,7 +62,67 @@ export default {
     return {
       showAlert: true,
       alertAnimation: 'fade',
+      load: true,
+      elementWidth: 100,
     };
+  },
+  methods: {
+    beforeEnter(el) {
+      console.log('beforeEnter');
+
+      this.elementWidth = 100;
+      el.style.width = this.elementWidth + 'px';
+    },
+    enter(el, done) {
+      console.log('enter');
+
+      let round = 1;
+
+      const interval = setInterval(() => {
+        el.style.width = (this.elementWidth + round * 10) + 'px';
+        round += 1;
+
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
+    },
+    afterEnter(el) {
+      console.log('afterEnter');
+    },
+    enterCancelled(el) {
+      console.log('enterCancelled');
+    },
+    beforeLeave(el) {
+      console.log('beforeLeave');
+
+      this.elementWidth = 300;
+      el.style.width = this.elementWidth + 'px';
+    },
+    leave(el, done) {
+      console.log('leave');
+
+      let round = 1;
+
+      const interval = setInterval(() => {
+        el.style.width = (this.elementWidth - round * 10) + 'px';
+        round += 1;
+
+        console.log('foooo');
+
+        if (round > 20) {
+          clearInterval(interval);
+          done();
+        }
+      }, 20);
+    },
+    afterLeave(el) {
+      console.log('afterLeave');
+    },
+    leaveCancelled(el) {
+      console.log('leaveCancelled');
+    },
   },
 };
 </script>
