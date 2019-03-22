@@ -38,11 +38,11 @@ Vue.filter('countLetters', (string) => {
 });
 
 /* Global Mixin */
-Vue.mixin({
-  created() {
-    console.log('Global Mixins - Created Hook');
-  },
-});
+// Vue.mixin({
+//   created() {
+//     console.log('Global Mixins - Created Hook');
+//   },
+// });
 
 export const eventBus = new Vue({
   methods: {
