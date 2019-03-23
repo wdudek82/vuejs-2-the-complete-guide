@@ -37,12 +37,10 @@
           @enter="enter"
           @after-enter="afterEnter"
           @enter-cancelled="enterCancelled"
-
           @before-leave="beforeLeave"
           @leave="leave"
           @after-leave="afterLeave"
           @leave-cancelled="leaveCancelled"
-
           :css="false"
         >
           <div
@@ -50,20 +48,44 @@
             style="width: 300px; height: 100px; background: lightgreen;"
           ></div>
         </transition>
+        <hr />
+        <button
+          class="btn btn-primary"
+          @click="
+            selectedComponent =
+              selectedComponent === 'app-success-alert'
+                ? 'app-danger-alert'
+                : 'app-success-alert'
+          "
+        >
+          Toggle Components
+        </button>
+        <br /><br />
+        <transition name="fade" mode="out-in">
+          <component :is="selectedComponent"></component>
+        </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import DangerAlert from './DangerAlert';
+import SuccessAlert from './SuccessAlert';
+
 export default {
   name: 'AnimationsTransitions',
+  components: {
+    appDangerAlert: DangerAlert,
+    appSuccessAlert: SuccessAlert,
+  },
   data() {
     return {
       showAlert: true,
       alertAnimation: 'fade',
       load: true,
       elementWidth: 100,
+      selectedComponent: 'app-success-alert',
     };
   },
   methods: {
@@ -79,7 +101,7 @@ export default {
       let round = 1;
 
       const interval = setInterval(() => {
-        el.style.width = (this.elementWidth + round * 10) + 'px';
+        el.style.width = this.elementWidth + round * 10 + 'px';
         round += 1;
 
         if (round > 20) {
@@ -106,7 +128,7 @@ export default {
       let round = 1;
 
       const interval = setInterval(() => {
-        el.style.width = (this.elementWidth - round * 10) + 'px';
+        el.style.width = this.elementWidth - round * 10 + 'px';
         round += 1;
 
         console.log('foooo');
@@ -141,7 +163,7 @@ export default {
 
 .fade-leave-active {
   opacity: 0;
-  transform: scale(0.5);
+  /*transform: scale(0.5);*/
   transition: all 300ms ease-in-out;
 }
 
